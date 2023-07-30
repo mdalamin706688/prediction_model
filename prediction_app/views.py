@@ -8,10 +8,9 @@ from .models import load_model_from_file
 # Endpoint for making predictions
 @csrf_exempt
 @require_POST
-def predict(request):
+def copd_prediction(request):
     try:
-        data = request.POST.get('data')
-        data = json.loads(data)  # Assuming the data is in JSON format
+        data = json.loads(request.body)  # Assuming the data is in JSON format
 
         # Assuming your input data is in the format of a list of dictionaries
         # where each dictionary represents a row in the CSV
